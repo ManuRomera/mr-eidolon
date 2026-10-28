@@ -20,14 +20,16 @@
     "type": "system",
     "compatibility": {
      "minimum": "0.6.0"
-    }
+    },
+    "manifest": "https://raw.githubusercontent.com/Futil/foundry-mothership/0.6.1/system.json"
    }
   ],
   "requires": [
    {
     "id": "mr-direccion",
     "type": "module",
-    "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json"
+    "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json",
+    "reason": "Barra del Guardián: escenas, música, efectos y relojes · Warden’s bar: scenes, music, effects and clocks"
    }
   ],
   "recommends": [

@@ -20,6 +20,9 @@
   <sub>Un solo módulo con la aventura completa en los dos idiomas · One module, the complete adventure in both languages</sub>
 </p>
 
+> [!IMPORTANT]
+> **Necesita · Requires:** el sistema **[Mothership](https://github.com/Futil/foundry-mothership)** (`mosh`) y el módulo **[MR- Dirección](https://github.com/ManuRomera/mr-direccion)**. Manifiestos y pasos en [Requisitos](#requisitos) · Manifests and steps in [Requirements](#requirements).
+
 ---
 
 ## 🇪🇸 Castellano
@@ -27,7 +30,7 @@
 <p align="center">
   <a href="https://github.com/ManuRomera/mr-eidolon/releases/latest"><b>⬇️ Descargar</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-ES-Dosier-del-Guardian.pdf"><b>📖 Dosier del Guardián (PDF)</b></a> &nbsp;·&nbsp;
-  <a href="#instalar"><b>⚡ Instalar</b></a>
+  <a href="#requisitos"><b>🧩 Requisitos</b></a> &nbsp;·&nbsp; <a href="#instalar"><b>⚡ Instalar</b></a>
 </p>
 
 <p align="center"><b>Horror científico · investigación · paranoia · Mothership 1e · Foundry VTT v13</b><br><sub>3–6 jugadores · una sesión de 2 horas</sub></p>
@@ -68,13 +71,26 @@ La tripulación de la *Viuda* acepta un contrato de laboratorio en la estación 
 | Pregenerados (anverso y dorso) + 10 documentos | [EIDOLON-ES-Fichas-y-documentos.pdf](https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-ES-Fichas-y-documentos.pdf) |
 | Planos A3 (tripulación + Guardián) | [EIDOLON-ES-Planos-A3.pdf](https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-ES-Planos-A3.pdf) |
 
-<a id="instalar"></a>
+### Requisitos
+
+| | Qué es | ¿Obligatorio? | Enlace | Manifiesto |
+|---|---|---|---|---|
+| 🧑‍🚀 **Foundry VTT v13** | El programa | **Sí** | [foundryvtt.com](https://foundryvtt.com) | — |
+| 🪐 **Mothership** (`mosh`) | El sistema de juego | **Sí** | [Futil/foundry-mothership](https://github.com/Futil/foundry-mothership) | `https://raw.githubusercontent.com/Futil/foundry-mothership/0.6.1/system.json` |
+| 🎬 **MR- Dirección** | La barra del Guardián (escenas, música, efectos, relojes) | **Sí** | [ManuRomera/mr-direccion](https://github.com/ManuRomera/mr-direccion) | `https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json` |
+| 🇪🇸 **MR- Mothership en español** | El sistema en castellano y la tabla de parches ilustrada | Recomendado si juegas en castellano | [ManuRomera/mr-mothership-es](https://github.com/ManuRomera/mr-mothership-es) | `https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json` |
+| 🔤 **Babele** | Lo necesita MR- Mothership en español | Solo con el anterior | [riccisi/foundryvtt-babele](https://gitlab.com/riccisi/foundryvtt-babele) | `https://gitlab.com/riccisi/foundryvtt-babele/raw/master/module/module.json` |
+
+> Mothership y MR- Dirección se pueden buscar también por su nombre en *Instalar sistema* / *Instalar módulo*. Si instalas EIDOLON por manifiesto, Foundry te ofrece instalar MR- Dirección en el mismo paso.
+
 ### Instalar
 
-1. En Foundry v13: **Módulos de complemento → Instalar módulo** y pega el manifiesto:
+1. **Sistema:** en Foundry v13, *Sistemas de juego → Instalar sistema*, pega `https://raw.githubusercontent.com/Futil/foundry-mothership/0.6.1/system.json` (o busca «Mothership»).
+2. **Módulos:** *Módulos de complemento → Instalar módulo*, pega el manifiesto de EIDOLON:
    `https://github.com/ManuRomera/mr-eidolon/releases/latest/download/module.json`
-2. Necesita el sistema **Mothership** (`mosh`) y **[MR- Dirección](https://github.com/ManuRomera/mr-direccion)**, que se instala sola. Se recomienda **[MR- Mothership en español](https://github.com/ManuRomera/mr-mothership-es)** para tener el sistema en castellano, con la tabla de **parches** ilustrada.
-3. Actívalo en un mundo: en un **mundo vacío** la aventura se importa sola en el idioma de Foundry. Puedes cambiarlo en *Configurar ajustes → MR- EIDOLON* y reimportar desde *Configuración → MR- EIDOLON → Importar la aventura*.
+   Foundry te pedirá instalar también **MR- Dirección**; acepta. Si no te lo pide, instálala con `https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json`.
+3. **Si juegas en castellano:** instala también **MR- Mothership en español** (`https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json`) y **Babele**, y pon Foundry en *Español*.
+4. **Mundo:** crea un mundo con el sistema Mothership y activa **MR- EIDOLON** y **MR- Dirección** (y la traducción). En un **mundo vacío** la aventura se importa sola en el idioma de Foundry; puedes cambiarlo en *Configurar ajustes → MR- EIDOLON* y reimportar desde *Configuración → MR- EIDOLON → Importar la aventura*.
 
 ### Créditos y aviso
 
@@ -90,7 +106,7 @@ La tripulación de la *Viuda* acepta un contrato de laboratorio en la estación 
 <p align="center">
   <a href="https://github.com/ManuRomera/mr-eidolon/releases/latest"><b>⬇️ Download</b></a> &nbsp;·&nbsp;
   <a href="https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-EN-Wardens-Dossier.pdf"><b>📖 Warden’s Dossier (PDF)</b></a> &nbsp;·&nbsp;
-  <a href="#install"><b>⚡ Install</b></a>
+  <a href="#requirements"><b>🧩 Requirements</b></a> &nbsp;·&nbsp; <a href="#install"><b>⚡ Install</b></a>
 </p>
 
 <p align="center"><b>Science horror · investigation · paranoia · Mothership 1e · Foundry VTT v13</b><br><sub>3–6 players · one 2-hour session</sub></p>
@@ -131,13 +147,26 @@ The crew of the *Widow* takes a lab contract on station **LIMEN-9**: repeat four
 | Pregens (front and back) + 10 handouts | [EIDOLON-EN-Characters-and-Handouts.pdf](https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-EN-Characters-and-Handouts.pdf) |
 | A3 deck plans (crew + Warden) | [EIDOLON-EN-A3-Deck-Plans.pdf](https://github.com/ManuRomera/mr-eidolon/releases/latest/download/EIDOLON-EN-A3-Deck-Plans.pdf) |
 
-<a id="install"></a>
+### Requirements
+
+| | What it is | Required? | Link | Manifest |
+|---|---|---|---|---|
+| 🧑‍🚀 **Foundry VTT v13** | The app | **Yes** | [foundryvtt.com](https://foundryvtt.com) | — |
+| 🪐 **Mothership** (`mosh`) | The game system | **Yes** | [Futil/foundry-mothership](https://github.com/Futil/foundry-mothership) | `https://raw.githubusercontent.com/Futil/foundry-mothership/0.6.1/system.json` |
+| 🎬 **MR- Dirección** | The Warden’s bar (scenes, music, effects, clocks) | **Yes** | [ManuRomera/mr-direccion](https://github.com/ManuRomera/mr-direccion) | `https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json` |
+| 🇪🇸 **MR- Mothership en español** | Spanish translation of the system, with the illustrated patch table | Only to play in Spanish | [ManuRomera/mr-mothership-es](https://github.com/ManuRomera/mr-mothership-es) | `https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json` |
+| 🔤 **Babele** | Needed by MR- Mothership en español | Only with the above | [riccisi/foundryvtt-babele](https://gitlab.com/riccisi/foundryvtt-babele) | `https://gitlab.com/riccisi/foundryvtt-babele/raw/master/module/module.json` |
+
+> You can also search for Mothership and MR- Dirección by name in *Install System* / *Install Module*. When you install EIDOLON from its manifest, Foundry offers to install MR- Dirección in the same step.
+
 ### Install
 
-1. In Foundry v13: **Add-on Modules → Install Module** and paste the manifest:
+1. **System:** in Foundry v13, *Game Systems → Install System*, paste `https://raw.githubusercontent.com/Futil/foundry-mothership/0.6.1/system.json` (or search for “Mothership”).
+2. **Modules:** *Add-on Modules → Install Module*, paste the EIDOLON manifest:
    `https://github.com/ManuRomera/mr-eidolon/releases/latest/download/module.json`
-2. It requires the **Mothership** system (`mosh`) and **[MR- Dirección](https://github.com/ManuRomera/mr-direccion)**, installed automatically.
-3. Enable it in a world: in an **empty world** the adventure imports itself in your Foundry language. You can change it in *Configure Settings → MR- EIDOLON* and reimport from *Game Settings → MR- EIDOLON → Import the adventure*.
+   Foundry will ask to install **MR- Dirección** too; accept. If it doesn’t, install it from `https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json`.
+3. **To play in Spanish:** also install **MR- Mothership en español** (`https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json`) and **Babele**, and set Foundry to *Español*.
+4. **World:** create a world with the Mothership system and enable **MR- EIDOLON** and **MR- Dirección**. In an **empty world** the adventure imports itself in your Foundry language; you can change it in *Configure Settings → MR- EIDOLON* and reimport from *Game Settings → MR- EIDOLON → Import the adventure*.
 
 ### Credits & notice
 
