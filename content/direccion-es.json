@@ -1,0 +1,1027 @@
+{
+ "schema": 1,
+ "id": "mr-eidolon",
+ "title": "MR- EIDOLON: Nadie recuerda morir",
+ "version": "1.0.0",
+ "author": "Manu Romera",
+ "license": "CC BY-NC-SA 4.0",
+ "settings": {
+  "fade": 3.5,
+  "motifs": [
+   {
+    "id": "tension",
+    "label": "Tensión",
+    "icon": "eye",
+    "music": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "tension"
+     ]
+    }
+   },
+   {
+    "id": "horror",
+    "label": "Horror",
+    "icon": "skull",
+    "music": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "nido"
+     ]
+    }
+   },
+   {
+    "id": "huida",
+    "label": "Huida",
+    "icon": "person-running",
+    "music": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "huida"
+     ]
+    }
+   },
+   {
+    "id": "exploracion",
+    "label": "Exploración",
+    "icon": "compass",
+    "music": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "estacion"
+     ]
+    }
+   },
+   {
+    "id": "final",
+    "label": "Epílogo",
+    "icon": "moon",
+    "music": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "final"
+     ]
+    }
+   }
+  ],
+  "effects": [
+   {
+    "id": "alarma",
+    "label": "Alarma",
+    "icon": "triangle-exclamation",
+    "sound": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "alarma"
+     ]
+    }
+   },
+   {
+    "id": "golpe",
+    "label": "Golpe metálico",
+    "icon": "hammer",
+    "sound": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "golpe"
+     ]
+    }
+   },
+   {
+    "id": "compuerta",
+    "label": "Compuerta",
+    "icon": "door-open",
+    "sound": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "compuerta"
+     ]
+    }
+   },
+   {
+    "id": "temblor",
+    "label": "Temblor",
+    "icon": "house-crack",
+    "sound": {
+     "flag": [
+      "mr-eidolon",
+      "slug",
+      "temblor"
+     ]
+    }
+   }
+  ],
+  "markers": {
+   "milestones": [
+    {
+     "id": "nivel1",
+     "label": "1 · Propiedad"
+    },
+    {
+     "id": "nivel2",
+     "label": "2 · Procedencia"
+    },
+    {
+     "id": "nivel3",
+     "label": "3 · Organismo"
+    },
+    {
+     "id": "nivel4",
+     "label": "4 · Suplantación"
+    }
+   ],
+   "clocks": [
+    {
+     "id": "recirculacion",
+     "label": "Recirculación",
+     "segments": 6
+    },
+    {
+     "id": "noxum",
+     "label": "Respuesta NÓXUM",
+     "segments": 6
+    },
+    {
+     "id": "soporte",
+     "label": "Soporte vital",
+     "segments": 8
+    }
+   ]
+  }
+ },
+ "scenes": [
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "deck-A"
+    ]
+   },
+   "order": 0,
+   "name": "LIMEN-9 · Cubierta A",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.9XnBMFzOglFy4qY0"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "estacion"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Ventilación",
+     "icon": "fan",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "ventilacion"
+      ]
+     }
+    },
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    }
+   ],
+   "ambient": null,
+   "figures": [],
+   "handouts": [
+    {
+     "ref": {
+      "uuid": "JournalEntry.73OQPPYItP3MxLjB.JournalEntryPage.2u9VTemP2Ra3SRzg"
+     },
+     "label": "Cubierta A · tripulación"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/deck-A.webp"
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "deck-B"
+    ]
+   },
+   "order": 1,
+   "name": "LIMEN-9 · Cubierta B",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.4cNZb7zJYONPrSni"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "conductos"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    },
+    {
+     "label": "Goteo",
+     "icon": "droplet",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "goteo"
+      ]
+     }
+    }
+   ],
+   "ambient": null,
+   "figures": [],
+   "handouts": [
+    {
+     "ref": {
+      "uuid": "JournalEntry.73OQPPYItP3MxLjB.JournalEntryPage.5YkNYG3G1XefakKt"
+     },
+     "label": "Cubierta B · tripulación"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/deck-B.webp"
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "portada"
+    ]
+   },
+   "order": 10,
+   "name": "EIDOLON",
+   "reading": {
+    "uuid": "JournalEntry.DWEZAOhHGrCj0AXP.JournalEntryPage.b1yvx2ShPN5BhyxM"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "estacion"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Estática de radio",
+     "icon": "tower-broadcast",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "radio"
+      ]
+     }
+    }
+   ],
+   "ambient": "dim",
+   "figures": [],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-01"
+      ]
+     },
+     "label": "01 · Contrato de inspección"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-02"
+      ]
+     },
+     "label": "02 · Manifiesto CV-11"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-03"
+      ]
+     },
+     "label": "03 · Cadena de custodia"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_portada.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "vesperina"
+    ]
+   },
+   "order": 11,
+   "name": "Vesperina (V-17)",
+   "reading": {
+    "uuid": "JournalEntry.a3c8Sw0TF4zIvVJw.JournalEntryPage.of6v3cBc6SIIP30D"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "tension"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    }
+   ],
+   "ambient": "light",
+   "figures": [],
+   "handouts": [],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_vesperina.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "cuarentena"
+    ]
+   },
+   "order": 12,
+   "name": "02 · Vestíbulo de cuarentena",
+   "reading": {
+    "uuid": "JournalEntry.DWEZAOhHGrCj0AXP.JournalEntryPage.tXuCf2OGWCktNQPI"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "turno"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Ventilación",
+     "icon": "fan",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "ventilacion"
+      ]
+     }
+    },
+    {
+     "label": "Respiraciones",
+     "icon": "lungs",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "respiraciones"
+      ]
+     }
+    }
+   ],
+   "ambient": "light",
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "dalia"
+      ]
+     },
+     "label": ""
+    }
+   ],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-05"
+      ]
+     },
+     "label": "05 · Balance de materia"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_cuarentena.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "laboratorio"
+    ]
+   },
+   "order": 13,
+   "name": "10 · Analítica HERMES",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.alVCrHMc8oXrnZoe"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "control"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Terminal",
+     "icon": "terminal",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "terminal"
+      ]
+     }
+    },
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    }
+   ],
+   "ambient": "light",
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "mara"
+      ]
+     },
+     "label": ""
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "simon"
+      ]
+     },
+     "label": ""
+    }
+   ],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-04"
+      ]
+     },
+     "label": "04 · Respuesta estructural"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-06"
+      ]
+     },
+     "label": "06 · Orden de aislamiento"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-08"
+      ]
+     },
+     "label": "08 · Informe de tejido 12-C"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-10"
+      ]
+     },
+     "label": "10 · Prueba de filamentos"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_laboratorio.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "nido"
+    ]
+   },
+   "order": 14,
+   "name": "09 · Nido Cero",
+   "reading": {
+    "uuid": "JournalEntry.DWEZAOhHGrCj0AXP.JournalEntryPage.NvLJSBNnkEs4wm9m"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "nido"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Pulso del Nido",
+     "icon": "heart-pulse",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "latido"
+      ]
+     }
+    },
+    {
+     "label": "Goteo",
+     "icon": "droplet",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "goteo"
+      ]
+     }
+    }
+   ],
+   "ambient": "dark",
+   "figures": [],
+   "handouts": [],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_nido.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "morgue"
+    ]
+   },
+   "order": 15,
+   "name": "12 · Morgue",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.etfqN5krJYHtpXQe"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "tension"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    },
+    {
+     "label": "Goteo",
+     "icon": "droplet",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "goteo"
+      ]
+     }
+    }
+   ],
+   "ambient": "dim",
+   "figures": [],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-07"
+      ]
+     },
+     "label": "07 · Dos versiones del SOS"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_morgue.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "reactor"
+    ]
+   },
+   "order": 16,
+   "name": "14 · Reactor",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.R348AEwAXtRhpRkQ"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "reactor"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    },
+    {
+     "label": "Fuga de gas",
+     "icon": "wind",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "fuga"
+      ]
+     }
+    }
+   ],
+   "ambient": "dim",
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "ivo"
+      ]
+     },
+     "label": ""
+    }
+   ],
+   "handouts": [],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_reactor.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "hangar"
+    ]
+   },
+   "order": 17,
+   "name": "16 · Hangar Barquero",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.If3XczBMPBodC7Am"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "huida"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Alarma de presión",
+     "icon": "gauge-high",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "presion"
+      ]
+     }
+    },
+    {
+     "label": "Respiración en el casco",
+     "icon": "user-astronaut",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "casco"
+      ]
+     }
+    }
+   ],
+   "ambient": "dim",
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "yara"
+      ]
+     },
+     "label": ""
+    }
+   ],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-09"
+      ]
+     },
+     "label": "09 · Protocolo ORFEO"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_hangar.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "pasillo"
+    ]
+   },
+   "order": 18,
+   "name": "15-B · Conductos",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.31udp2wy7jFQNIEu"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "conductos"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Raspado en el metal",
+     "icon": "hand-back-fist",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "raspado"
+      ]
+     }
+    },
+    {
+     "label": "Goteo",
+     "icon": "droplet",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "goteo"
+      ]
+     }
+    }
+   ],
+   "ambient": "dark",
+   "figures": [],
+   "handouts": [],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/i_pasillo.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Version
+        id: version
+        run: echo "version=$(jq -r '.version' module.json)" >> "$GITHUB_OUTPUT"
+      - name: Build packs and ZIP (same script as local)
+        run: |
+          npm ci
+          node scripts/build.mjs
+          for f in packs/aventura-en/CURRENT packs/aventura-es/CURRENT js/main.mjs content/direccion-en.json content/direccion-es.json assets/maps/A.webp assets/audio/musica/estacion.ogg lang/en.json; do
+            unzip -l dist/mr-eidolon.zip | grep -q "$f" || { echo "missing $f"; exit 1; }
+          done
+      - name: Release notes
+        run: |
+          awk -v v="${{ steps.version.outputs.version }}" '$0 ~ "^## "v" " {f=1; next} /^## / {f=0} f' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "MR- EIDOLON v${{ steps.version.outputs.version }}" > notes.md
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: v${{ steps.version.outputs.version }}
+        run: |
+          FILES="dist/mr-eidolon.zip module.json docs/pdf/*.pdf"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" $FILES --clobber
+            gh release edit "$TAG" --notes-file notes.md
+          else
+            gh release create "$TAG" $FILES --title "MR- EIDOLON v${{ steps.version.outputs.version }}" --notes-file notes.md
+          fi

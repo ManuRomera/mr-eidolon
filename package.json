@@ -1,0 +1,14 @@
+{
+  "name": "mr-eidolon",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "datos": "python3 tools/build_foundry.py",
+    "build": "node scripts/build.mjs"
+  },
+  "devDependencies": {
+    "archiver": "7.0.1",
+    "classic-level": "2.0.0"
+  }
+}
