@@ -1,24 +1,85 @@
 {
  "id": "mr-eidolon",
  "title": "MR- EIDOLON",
- "description": "A science-horror adventure for Mothership 1e, in English and Spanish. A lab contract, a material that remembers, and copies that don’t know they are copies. Full Warden’s Dossier, 10 handouts, 6 pregens, 8 survivors, deck plans with walls and doors, image scenes with music and effects for MR- Dirección, and the Absence Log tools. · Aventura de horror científico para Mothership 1e, en castellano e inglés.",
+ "description": "Aventura de horror científico para Mothership 1e, en castellano e inglés. Un contrato de laboratorio, un material que recuerda y copias que no saben que lo son: Dosier del Guardián completo, 10 documentos, 6 pregenerados, 8 supervivientes, planos con muros y puertas, escenas de imagen con música y efectos para MR- Dirección y el Registro de Ausencias. · A science-horror adventure for Mothership 1e, in Spanish and English. A lab contract, a material that remembers, and copies that don’t know they are copies: full Warden’s Dossier, 10 handouts, 6 pregens, 8 survivors, deck plans with walls and doors, image scenes with music and effects for MR- Dirección, and the Absence Log tools.",
  "version": "1.0.0",
- "authors": [{"name": "Manu Romera", "url": "https://github.com/ManuRomera"}],
- "compatibility": {"minimum": "13", "verified": "13"},
- "relationships": {
-  "systems": [{"id": "mosh", "type": "system", "compatibility": {"minimum": "0.6.0"}}],
-  "requires": [{"id": "mr-direccion", "type": "module", "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json"}],
-  "recommends": [{"id": "mr-mothership-es", "type": "module", "manifest": "https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json", "reason": "Spanish translation of the Mothership system / Traducción del sistema al castellano"}]
+ "authors": [
+  {
+   "name": "Manu Romera",
+   "url": "https://github.com/ManuRomera"
+  }
+ ],
+ "compatibility": {
+  "minimum": "13",
+  "verified": "13"
  },
- "esmodules": ["js/main.mjs"],
- "styles": ["styles/eidolon.css"],
+ "relationships": {
+  "systems": [
+   {
+    "id": "mosh",
+    "type": "system",
+    "compatibility": {
+     "minimum": "0.6.0"
+    }
+   }
+  ],
+  "requires": [
+   {
+    "id": "mr-direccion",
+    "type": "module",
+    "manifest": "https://github.com/ManuRomera/mr-direccion/releases/latest/download/module.json"
+   }
+  ],
+  "recommends": [
+   {
+    "id": "mr-mothership-es",
+    "type": "module",
+    "manifest": "https://github.com/ManuRomera/mr-mothership-es/releases/latest/download/module.json",
+    "reason": "Spanish translation of the Mothership system / Traducción del sistema al castellano"
+   }
+  ]
+ },
+ "esmodules": [
+  "js/main.mjs"
+ ],
+ "styles": [
+  "styles/eidolon.css"
+ ],
  "languages": [
-  {"lang": "en", "name": "English", "path": "lang/en.json"},
-  {"lang": "es", "name": "Español", "path": "lang/es.json"}
+  {
+   "lang": "es",
+   "name": "Español",
+   "path": "lang/es.json"
+  },
+  {
+   "lang": "en",
+   "name": "English",
+   "path": "lang/en.json"
+  }
  ],
  "packs": [
-  {"name": "aventura-en", "label": "MR- EIDOLON (English)", "path": "packs/aventura-en", "type": "Adventure", "system": "mosh", "ownership": {"PLAYER": "NONE", "ASSISTANT": "OWNER"}},
-  {"name": "aventura-es", "label": "MR- EIDOLON (Español)", "path": "packs/aventura-es", "type": "Adventure", "system": "mosh", "ownership": {"PLAYER": "NONE", "ASSISTANT": "OWNER"}}
+  {
+   "name": "aventura-es",
+   "label": "MR- EIDOLON (Español)",
+   "path": "packs/aventura-es",
+   "type": "Adventure",
+   "system": "mosh",
+   "ownership": {
+    "PLAYER": "NONE",
+    "ASSISTANT": "OWNER"
+   }
+  },
+  {
+   "name": "aventura-en",
+   "label": "MR- EIDOLON (English)",
+   "path": "packs/aventura-en",
+   "type": "Adventure",
+   "system": "mosh",
+   "ownership": {
+    "PLAYER": "NONE",
+    "ASSISTANT": "OWNER"
+   }
+  }
  ],
  "url": "https://github.com/ManuRomera/mr-eidolon",
  "manifest": "https://github.com/ManuRomera/mr-eidolon/releases/latest/download/module.json",

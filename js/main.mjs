@@ -133,6 +133,14 @@ export function registro() {
   j.sheet.render(true);
 }
 
+/* ---------- Figuras de cuerpo entero ---------- */
+// En las escenas de imagen (teatro de la mente) el token redondo se cambia por la figura recortada del personaje;
+// MR- Dirección le da el tamaño por perspectiva. En los planos se queda el token redondo.
+Hooks.on("preCreateToken", (token) => {
+  const figura = token.actor?.flags?.[MOD]?.figura;
+  if (figura && token.parent?.flags?.[MOD]?.imagen) token.updateSource({ "texture.src": figura, "texture.fit": "contain", ring: { enabled: false } });
+});
+
 /* ---------- Configuración ---------- */
 Hooks.on("renderSettings", (app, html) => {
   if (!game.user.isGM) return;

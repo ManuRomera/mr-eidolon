@@ -397,7 +397,18 @@
     }
    ],
    "ambient": "light",
-   "figures": [],
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "rafi"
+      ]
+     },
+     "label": ""
+    }
+   ],
    "handouts": [],
    "notes": "",
    "thumb": "modules/mr-eidolon/assets/thumbs/i_vesperina.webp",
@@ -472,6 +483,16 @@
        "mr-eidolon",
        "slug",
        "dalia"
+      ]
+     },
+     "label": ""
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "edda"
       ]
      },
      "label": ""
@@ -685,7 +706,18 @@
     }
    ],
    "ambient": "dark",
-   "figures": [],
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "forma"
+      ]
+     },
+     "label": ""
+    }
+   ],
    "handouts": [],
    "notes": "",
    "thumb": "modules/mr-eidolon/assets/thumbs/i_nido.webp",
@@ -753,7 +785,18 @@
     }
    ],
    "ambient": "dim",
-   "figures": [],
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "mara"
+      ]
+     },
+     "label": ""
+    }
+   ],
    "handouts": [
     {
      "ref": {
@@ -839,6 +882,16 @@
        "mr-eidolon",
        "slug",
        "ivo"
+      ]
+     },
+     "label": ""
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "noemi"
       ]
      },
      "label": ""
@@ -1001,7 +1054,18 @@
     }
    ],
    "ambient": "dark",
-   "figures": [],
+   "figures": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "forma"
+      ]
+     },
+     "label": ""
+    }
+   ],
    "handouts": [],
    "notes": "",
    "thumb": "modules/mr-eidolon/assets/thumbs/i_pasillo.webp",

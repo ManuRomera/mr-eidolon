@@ -113,14 +113,14 @@ MOTIVOS = [("tension", "tension", "Tensión", "Tension", "eye"), ("horror", "nid
 
 # Escenas de imagen: clave → (imagen, página de lectura, música, efectos de escena, figuras, ambiente)
 IMAGENES = {"portada": ("i_portada", "lectura:0", "estacion", ["radio"], [], "dim"),
-            "vesperina": ("i_vesperina", "cap:01", "tension", ["zumbido"], [], "light"),
-            "cuarentena": ("i_cuarentena", "lectura:1", "turno", ["ventilacion", "respiraciones"], ["dalia"], "light"),
+            "vesperina": ("i_vesperina", "cap:01", "tension", ["zumbido"], ["rafi"], "light"),
+            "cuarentena": ("i_cuarentena", "lectura:1", "turno", ["ventilacion", "respiraciones"], ["dalia", "edda"], "light"),
             "laboratorio": ("i_laboratorio", "sala:10", "control", ["terminal", "zumbido"], ["mara", "simon"], "light"),
-            "nido": ("i_nido", "lectura:2", "nido", ["latido", "goteo"], [], "dark"),
-            "morgue": ("i_morgue", "sala:12", "tension", ["zumbido", "goteo"], [], "dim"),
-            "reactor": ("i_reactor", "sala:14", "reactor", ["zumbido", "fuga"], ["ivo"], "dim"),
+            "nido": ("i_nido", "lectura:2", "nido", ["latido", "goteo"], ["forma"], "dark"),
+            "morgue": ("i_morgue", "sala:12", "tension", ["zumbido", "goteo"], ["mara"], "dim"),
+            "reactor": ("i_reactor", "sala:14", "reactor", ["zumbido", "fuga"], ["ivo", "noemi"], "dim"),
             "hangar": ("i_hangar", "sala:16", "huida", ["presion", "casco"], ["yara"], "dim"),
-            "pasillo": ("i_pasillo", "sala:15", "conductos", ["raspado", "goteo"], [], "dark")}
+            "pasillo": ("i_pasillo", "sala:15", "conductos", ["raspado", "goteo"], ["forma"], "dark")}
 MAPA_MUSICA = {"A": ("estacion", ["ventilacion", "zumbido"]), "B": ("conductos", ["zumbido", "goteo"])}
 # En qué escena de imagen se entrega cada documento de mesa
 ENTREGA = {"01": "portada", "02": "portada", "03": "portada", "04": "laboratorio", "05": "cuarentena", "06": "laboratorio",
@@ -157,6 +157,10 @@ def recursos():
         k = f.stem
         color = (13, 102, 112) if k.startswith("pj") else (184, 56, 42) if k in ("forma", "matriz") else (150, 160, 162)
         token_redondo(f, A / "tokens" / f"{k}.webp", color, 0.0 if k == "matriz" else 0.06)
+    for f in sorted((TRAB / "img" / "figuras").glob("*.png")):
+        if "." in f.stem:
+            continue
+        figura(f, A / "figures" / f"{f.stem}.webp")
     for d, caja in CAJA_ESCENA.items():
         webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "maps" / f"{d}.webp", None, 86, caja)
         webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "thumbs" / f"deck-{d}.webp", 400, 78, caja)
@@ -182,6 +186,20 @@ def token_redondo(src, dst, color, arriba=0.06):
     d.ellipse([10, 10, 390, 390], outline=color, width=12)
     dst.parent.mkdir(parents=True, exist_ok=True)
     out.save(dst, "WEBP", quality=90, method=6)
+
+
+def figura(src, dst, lado=1024, visible=0.885, pie=0.055):
+    """Figura de cuerpo entero (PNG con alfa) → lienzo cuadrado transparente: alto = 88,5 %, pies a 5,5 % del borde (MR- Dirección)."""
+    im = Image.open(src).convert("RGBA")
+    im = im.crop(im.getchannel("A").point(lambda v: 255 if v > 24 else 0).getbbox())
+    alto = round(lado * visible); ancho = round(im.width * alto / im.height)
+    if ancho > lado:
+        ancho, alto = lado, round(im.height * lado / im.width)
+    im = im.resize((ancho, alto), Image.LANCZOS)
+    out = Image.new("RGBA", (lado, lado), (0, 0, 0, 0))
+    out.alpha_composite(im, ((lado - ancho) // 2, round(lado * (1 - pie)) - alto))
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    out.save(dst, "WEBP", quality=88, method=6)
 
 
 def recursos_idioma(lang):
@@ -406,6 +424,9 @@ class Aventura:
                 "width": 1, "height": 1, "lockRotation": True, "bar1": {"attribute": "health"}, "displayBars": 20,
                 "sight": {"enabled": enlace, "range": 30}, "ring": {"enabled": False}}
 
+    def fig(self, clave):
+        return {"figura": f"{MOD}/assets/figures/{clave}.webp"} if (A / "figures" / f"{clave}.webp").exists() else {}
+
     def item(self, owner, n, nombre, tipo, system, img):
         return {"_id": self.id(f"item:{owner}:{n}"), "name": nombre, "type": tipo, "img": img, "system": system, "effects": [], "flags": {}, "sort": n * 10}
 
@@ -447,7 +468,7 @@ class Aventura:
                                            "health": {"value": hp, "min": 0, "max": hp}, "hits": {"value": 0, "min": 0, "max": hits},
                                            "other": {"stress": {"value": int(p["estres"]), "min": 2, "max": 20}, "stressdesc": {"value": p["trauma"]}}, "stats": stats},
                                 "prototypeToken": self.token(nombre, img, 1, True, "#0d6670"), "items": items, "effects": [], "folder": fol, "sort": i * 10,
-                                "ownership": {"default": 0}, "flags": {MODID: {"slug": f"pj{i + 1}", "tipo": "pj"}}})
+                                "ownership": {"default": 0}, "flags": {MODID: {"slug": f"pj{i + 1}", "tipo": "pj", **self.fig(f"pj{i + 1:02d}")}}})
 
     def criatura(self, slug, nombre, img, stats, bio, armas, fol, disp, color, sort):
         c, ins, hp, heridas, pa = stats
@@ -458,7 +479,7 @@ class Aventura:
                                        "stats": {"combat": {"value": c, "min": 0, "max": 99, "enabled": True}, "instinct": {"value": ins, "min": 0, "max": 99, "enabled": True},
                                                  "armor": {"value": pa, "mod": 0, "min": 0, "max": 99, "damageReduction": 0, "cover": "none", "enabled": pa > 0}}},
                             "prototypeToken": self.token(nombre, img, disp, False, color), "items": items, "effects": [], "folder": fol, "sort": sort,
-                            "ownership": {"default": 0}, "flags": {MODID: {"slug": slug, "tipo": "pnj"}}})
+                            "ownership": {"default": 0}, "flags": {MODID: {"slug": slug, "tipo": "pnj", **self.fig(slug)}}})
 
     def pnj(self):
         fol = self.folder("Actor", "pnj", 200)
@@ -533,7 +554,7 @@ class Aventura:
                 "background": {"src": f"{MOD}/assets/art/{img}.webp"}, "thumb": f"{MOD}/assets/thumbs/{img}.webp", "width": w, "height": h, "padding": 0,
                 "initial": None, "backgroundColor": "#000000", "grid": {"type": 0, "size": 100, "alpha": 0}, "tokenVision": False, "fog": {"exploration": False},
                 "environment": {"darknessLevel": 0, "globalLight": {"enabled": True}}, "walls": [], "notes": [], "tokens": [], "lights": [], "sounds": [],
-                "tiles": [], "drawings": [], "templates": [], "regions": [], "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": k}}})
+                "tiles": [], "drawings": [], "templates": [], "regions": [], "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": k, "imagen": True}}})
 
     # ---------------- sonido, tablas y macros
     def sonido(self):
