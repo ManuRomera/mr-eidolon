@@ -326,16 +326,6 @@
       "flag": [
        "mr-eidolon",
        "slug",
-       "doc-02"
-      ]
-     },
-     "label": "02 · Manifiesto CV-11"
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
        "doc-03"
       ]
      },
@@ -343,7 +333,7 @@
     }
    ],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_portada.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/portada.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -397,21 +387,10 @@
     }
    ],
    "ambient": "light",
-   "figures": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "rafi"
-      ]
-     },
-     "label": ""
-    }
-   ],
+   "figures": [],
    "handouts": [],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_vesperina.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/vesperina.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -435,11 +414,11 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "cuarentena"
+     "s02"
     ]
    },
    "order": 12,
-   "name": "02 · Vestíbulo de cuarentena",
+   "name": "02 · Cuarentena",
    "reading": {
     "uuid": "JournalEntry.DWEZAOhHGrCj0AXP.JournalEntryPage.tXuCf2OGWCktNQPI"
    },
@@ -486,129 +465,9 @@
       ]
      },
      "label": ""
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "edda"
-      ]
-     },
-     "label": ""
     }
    ],
    "handouts": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "doc-05"
-      ]
-     },
-     "label": "05 · Balance de materia"
-    }
-   ],
-   "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_cuarentena.webp",
-   "stage": {
-    "eye": 0.45,
-    "anchors": [
-     [
-      0.3,
-      0.86
-     ],
-     [
-      0.5,
-      0.9
-     ],
-     [
-      0.7,
-      0.86
-     ]
-    ]
-   }
-  },
-  {
-   "ref": {
-    "flag": [
-     "mr-eidolon",
-     "slug",
-     "laboratorio"
-    ]
-   },
-   "order": 13,
-   "name": "10 · Analítica HERMES",
-   "reading": {
-    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.alVCrHMc8oXrnZoe"
-   },
-   "music": {
-    "flag": [
-     "mr-eidolon",
-     "slug",
-     "control"
-    ]
-   },
-   "motifs": null,
-   "cues": [
-    {
-     "label": "Terminal",
-     "icon": "terminal",
-     "sound": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "terminal"
-      ]
-     }
-    },
-    {
-     "label": "Zumbido eléctrico",
-     "icon": "bolt",
-     "sound": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "zumbido"
-      ]
-     }
-    }
-   ],
-   "ambient": "light",
-   "figures": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "mara"
-      ]
-     },
-     "label": ""
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "simon"
-      ]
-     },
-     "label": ""
-    }
-   ],
-   "handouts": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "doc-04"
-      ]
-     },
-     "label": "04 · Respuesta estructural"
-    },
     {
      "ref": {
       "flag": [
@@ -618,30 +477,10 @@
       ]
      },
      "label": "06 · Orden de aislamiento"
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "doc-08"
-      ]
-     },
-     "label": "08 · Informe de tejido 12-C"
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "doc-10"
-      ]
-     },
-     "label": "10 · Prueba de filamentos"
     }
    ],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_laboratorio.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s02.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -665,10 +504,10 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "nido"
+     "s09"
     ]
    },
-   "order": 14,
+   "order": 13,
    "name": "09 · Nido Cero",
    "reading": {
     "uuid": "JournalEntry.DWEZAOhHGrCj0AXP.JournalEntryPage.NvLJSBNnkEs4wm9m"
@@ -720,7 +559,7 @@
    ],
    "handouts": [],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_nido.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s09.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -744,7 +583,106 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "morgue"
+     "s10"
+    ]
+   },
+   "order": 14,
+   "name": "10 · Analítica HERMES",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.alVCrHMc8oXrnZoe"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "laboratorio"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Terminal",
+     "icon": "terminal",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "terminal"
+      ]
+     }
+    },
+    {
+     "label": "Zumbido eléctrico",
+     "icon": "bolt",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "zumbido"
+      ]
+     }
+    }
+   ],
+   "ambient": "light",
+   "figures": [],
+   "handouts": [
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-04"
+      ]
+     },
+     "label": "04 · Respuesta estructural"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-05"
+      ]
+     },
+     "label": "05 · Balance de materia"
+    },
+    {
+     "ref": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "doc-10"
+      ]
+     },
+     "label": "10 · Prueba de filamentos"
+    }
+   ],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s10.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "s12"
     ]
    },
    "order": 15,
@@ -756,7 +694,7 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "tension"
+     "morgue"
     ]
    },
    "motifs": null,
@@ -785,32 +723,21 @@
     }
    ],
    "ambient": "dim",
-   "figures": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "mara"
-      ]
-     },
-     "label": ""
-    }
-   ],
+   "figures": [],
    "handouts": [
     {
      "ref": {
       "flag": [
        "mr-eidolon",
        "slug",
-       "doc-07"
+       "doc-08"
       ]
      },
-     "label": "07 · Dos versiones del SOS"
+     "label": "08 · Informe de tejido 12-C"
     }
    ],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_morgue.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s12.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -834,7 +761,7 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "reactor"
+     "s14"
     ]
    },
    "order": 16,
@@ -885,21 +812,11 @@
       ]
      },
      "label": ""
-    },
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "noemi"
-      ]
-     },
-     "label": ""
     }
    ],
    "handouts": [],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_reactor.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s14.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [
@@ -923,100 +840,10 @@
     "flag": [
      "mr-eidolon",
      "slug",
-     "hangar"
+     "s15"
     ]
    },
    "order": 17,
-   "name": "16 · Hangar Barquero",
-   "reading": {
-    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.If3XczBMPBodC7Am"
-   },
-   "music": {
-    "flag": [
-     "mr-eidolon",
-     "slug",
-     "huida"
-    ]
-   },
-   "motifs": null,
-   "cues": [
-    {
-     "label": "Alarma de presión",
-     "icon": "gauge-high",
-     "sound": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "presion"
-      ]
-     }
-    },
-    {
-     "label": "Respiración en el casco",
-     "icon": "user-astronaut",
-     "sound": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "casco"
-      ]
-     }
-    }
-   ],
-   "ambient": "dim",
-   "figures": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "yara"
-      ]
-     },
-     "label": ""
-    }
-   ],
-   "handouts": [
-    {
-     "ref": {
-      "flag": [
-       "mr-eidolon",
-       "slug",
-       "doc-09"
-      ]
-     },
-     "label": "09 · Protocolo ORFEO"
-    }
-   ],
-   "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_hangar.webp",
-   "stage": {
-    "eye": 0.45,
-    "anchors": [
-     [
-      0.3,
-      0.86
-     ],
-     [
-      0.5,
-      0.9
-     ],
-     [
-      0.7,
-      0.86
-     ]
-    ]
-   }
-  },
-  {
-   "ref": {
-    "flag": [
-     "mr-eidolon",
-     "slug",
-     "pasillo"
-    ]
-   },
-   "order": 18,
    "name": "15-B · Conductos",
    "reading": {
     "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.31udp2wy7jFQNIEu"
@@ -1068,7 +895,75 @@
    ],
    "handouts": [],
    "notes": "",
-   "thumb": "modules/mr-eidolon/assets/thumbs/i_pasillo.webp",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s15.webp",
+   "stage": {
+    "eye": 0.45,
+    "anchors": [
+     [
+      0.3,
+      0.86
+     ],
+     [
+      0.5,
+      0.9
+     ],
+     [
+      0.7,
+      0.86
+     ]
+    ]
+   }
+  },
+  {
+   "ref": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "s16"
+    ]
+   },
+   "order": 18,
+   "name": "16 · Hangar Barquero",
+   "reading": {
+    "uuid": "JournalEntry.8JIvJuSB8cbNncpW.JournalEntryPage.If3XczBMPBodC7Am"
+   },
+   "music": {
+    "flag": [
+     "mr-eidolon",
+     "slug",
+     "hangar"
+    ]
+   },
+   "motifs": null,
+   "cues": [
+    {
+     "label": "Alarma de presión",
+     "icon": "gauge-high",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "presion"
+      ]
+     }
+    },
+    {
+     "label": "Respiración en el casco",
+     "icon": "user-astronaut",
+     "sound": {
+      "flag": [
+       "mr-eidolon",
+       "slug",
+       "casco"
+      ]
+     }
+    }
+   ],
+   "ambient": "dim",
+   "figures": [],
+   "handouts": [],
+   "notes": "",
+   "thumb": "modules/mr-eidolon/assets/thumbs/s16.webp",
    "stage": {
     "eye": 0.45,
     "anchors": [

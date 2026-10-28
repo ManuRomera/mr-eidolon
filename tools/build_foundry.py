@@ -66,6 +66,8 @@ L = {
   "doc_texto": "Texto del documento", "doc_imagen": "Documento", "entrega": "Cuándo se entrega",
   "bio": {"rol": "Puesto", "edad": "Edad", "trasto": "Trasto", "parche": "Parche", "vinculo": "Vínculo", "secreto": "Secreto personal", "decision": "Decisión difícil",
           "conf": "Solo para quien lleva este personaje."},
+  "botones": {"ver": "Ver la escena", "mostrar": "Mostrar a todos", "volver": "Volver a la cubierta {d}"},
+  "sup": {"donde": "Dónde está", "voz": "Cómo habla", "relaciones": "Relaciones", "pistas": "Lo que puede aportar", "copia": "Si es una copia", "parche": "Parche"},
   "rango": {10: "Trained", 15: "Expert", 20: "Master"},
   "irA": "Ir a la cubierta {d}", "tabla_copia": "Primera copia latente", "tabla_copia_txt": "Sortéala antes de jugar y anótala en el Registro de Ausencias.",
   "sorteo": "Sorteo de sustitución", "pistola": "Pistola de servicio", "filamento": "Filamento", "membrana": "Presión de membrana",
@@ -84,6 +86,8 @@ L = {
   "doc_texto": "Document text", "doc_imagen": "Document", "entrega": "When to hand it out",
   "bio": {"rol": "Position", "edad": "Age", "trasto": "Trinket", "parche": "Patch", "vinculo": "Bond", "secreto": "Personal secret", "decision": "Hard choice",
           "conf": "For the player of this character only."},
+  "botones": {"ver": "View the scene", "mostrar": "Show to everyone", "volver": "Back to Deck {d}"},
+  "sup": {"donde": "Where to find them", "voz": "How they talk", "relaciones": "Relationships", "pistas": "What they can offer", "copia": "If they are a copy", "parche": "Patch"},
   "rango": {10: "Trained", 15: "Expert", 20: "Master"},
   "irA": "Go to Deck {d}", "tabla_copia": "First Latent Copy", "tabla_copia_txt": "Roll before play and note the result in the Absence Log.",
   "sorteo": "Replacement Draw", "pistola": "Service pistol", "filamento": "Filament", "membrana": "Membrane pressure",
@@ -98,7 +102,12 @@ L = {
 MUSICA = {"estacion": ("exploracion", "Estación LIMEN-9", "LIMEN-9 Station"), "turno": ("turno", "Turno de noche", "Night Shift"),
           "control": ("control", "Control central", "Central Control"), "conductos": ("galerias", "Conductos", "Ducts"),
           "nido": ("cria", "Nido Cero", "Nest Zero"), "tension": ("refugio", "Tensión", "Tension"), "reactor": ("bomba", "Reactor", "Reactor"),
-          "huida": ("contrarreloj", "Cuenta atrás", "Countdown"), "eva": ("superficie", "Paseo EVA", "EVA Walk"), "final": ("final", "Lo que queda", "What Remains")}
+          "huida": ("contrarreloj", "Cuenta atrás", "Countdown"), "eva": ("superficie", "Paseo EVA", "EVA Walk"), "final": ("final", "Lo que queda", "What Remains"),
+          # propias de EIDOLON (tools/audio.py): None = no se copian de Nádir
+          "cumpleanos": (None, "Cumpleaños en el intercomunicador", "Birthday on the Intercom"), "dormitorios": (None, "Literas vacías", "Empty Bunks"),
+          "enfermeria": (None, "Enfermería", "Medbay"), "senal": (None, "La señal", "The Signal"), "carga": (None, "Bodega", "Cargo Hold"),
+          "laboratorio": (None, "Serie HERMES", "HERMES Series"), "reciclaje": (None, "Reciclaje hídrico", "Water Reclamation"),
+          "morgue": (None, "Cápsula 12-C", "Capsule 12-C"), "archivo": (None, "Protocolo ORFEO", "ORPHEUS Protocol"), "hangar": (None, "Barquero", "Ferryman")}
 SFX = {"zumbido": ("hum", "Zumbido eléctrico", "Electrical hum", "bolt"), "ventilacion": ("ventilador", "Ventilación", "Ventilation", "fan"),
        "goteo": ("goteo", "Goteo", "Dripping", "droplet"), "raspado": ("raspado", "Raspado en el metal", "Scraping metal", "hand-back-fist"),
        "latido": ("cria-latido", "Pulso del Nido", "Nest pulse", "heart-pulse"), "alarma": ("alarma-lenta", "Alarma", "Alarm", "triangle-exclamation"),
@@ -111,24 +120,34 @@ MOTIVOS = [("tension", "tension", "Tensión", "Tension", "eye"), ("horror", "nid
            ("huida", "huida", "Huida", "Escape", "person-running"), ("exploracion", "estacion", "Exploración", "Exploration", "compass"),
            ("final", "final", "Epílogo", "Epilogue", "moon")]
 
-# Escenas de imagen: clave → (imagen, página de lectura, música, efectos de escena, figuras, ambiente)
+# Escenas de imagen 16:9 sin personajes, una por ubicación (img/escenas/sNN.png; mientras falte, la ilustración antigua si la hay).
+# clave → (imagen de reserva, página de lectura, música, efectos de escena, reparto, ambiente)
 IMAGENES = {"portada": ("i_portada", "lectura:0", "estacion", ["radio"], [], "dim"),
-            "vesperina": ("i_vesperina", "cap:01", "tension", ["zumbido"], ["rafi"], "light"),
-            "cuarentena": ("i_cuarentena", "lectura:1", "turno", ["ventilacion", "respiraciones"], ["dalia", "edda"], "light"),
-            "laboratorio": ("i_laboratorio", "sala:10", "control", ["terminal", "zumbido"], ["mara", "simon"], "light"),
-            "nido": ("i_nido", "lectura:2", "nido", ["latido", "goteo"], ["forma"], "dark"),
-            "morgue": ("i_morgue", "sala:12", "tension", ["zumbido", "goteo"], ["mara"], "dim"),
-            "reactor": ("i_reactor", "sala:14", "reactor", ["zumbido", "fuga"], ["ivo", "noemi"], "dim"),
-            "hangar": ("i_hangar", "sala:16", "huida", ["presion", "casco"], ["yara"], "dim"),
-            "pasillo": ("i_pasillo", "sala:15", "conductos", ["raspado", "goteo"], ["forma"], "dark")}
+            "vesperina": ("i_vesperina", "cap:01", "tension", ["zumbido"], [], "light"),
+            "s01": (None, "sala:01", "cumpleanos", ["radio", "casco"], [], "dim"),
+            "s02": ("i_cuarentena", "lectura:1", "turno", ["ventilacion", "respiraciones"], ["dalia"], "light"),
+            "s03": (None, "sala:03", "dormitorios", ["ventilacion", "goteo"], [], "dim"),
+            "s04": (None, "sala:04", "cumpleanos", ["zumbido", "radio"], ["rafi"], "dim"),
+            "s05": (None, "sala:05", "enfermeria", ["zumbido", "respiraciones"], ["mara"], "light"),
+            "s06": (None, "sala:06", "control", ["terminal", "ventilacion"], [], "dim"),
+            "s07": (None, "sala:07", "senal", ["radio", "terminal"], ["noemi"], "dim"),
+            "s08": (None, "sala:08", "carga", ["zumbido", "raspado"], ["edda"], "dim"),
+            "s09": ("i_nido", "lectura:2", "nido", ["latido", "goteo"], ["forma"], "dark"),
+            "s10": ("i_laboratorio", "sala:10", "laboratorio", ["terminal", "zumbido"], [], "light"),
+            "s11": (None, "sala:11", "reciclaje", ["goteo", "fuga"], ["yara"], "dim"),
+            "s12": ("i_morgue", "sala:12", "morgue", ["zumbido", "goteo"], [], "dim"),
+            "s13": (None, "sala:13", "archivo", ["terminal", "zumbido"], ["simon"], "dim"),
+            "s14": ("i_reactor", "sala:14", "reactor", ["zumbido", "fuga"], ["ivo"], "dim"),
+            "s15": ("i_pasillo", "sala:15", "conductos", ["raspado", "goteo"], ["forma"], "dark"),
+            "s16": ("i_hangar", "sala:16", "hangar", ["presion", "casco"], [], "dim"),
+            "s17": (None, "sala:17", "eva", ["casco", "radio"], [], "dark")}
+SALAS_DECK = {k: d for d, C in mapas.CUBIERTAS.items() for k in list(C["salas"]) + ([C["exterior"][0]] if C["exterior"] else [])}
 MAPA_MUSICA = {"A": ("estacion", ["ventilacion", "zumbido"]), "B": ("conductos", ["zumbido", "goteo"])}
-# En qué escena de imagen se entrega cada documento de mesa
-ENTREGA = {"01": "portada", "02": "portada", "03": "portada", "04": "laboratorio", "05": "cuarentena", "06": "laboratorio",
-           "07": "morgue", "08": "laboratorio", "09": "hangar", "10": "laboratorio"}
+# En qué escena de imagen se entrega cada documento de mesa (según su «entrega»)
+ENTREGA = {"01": "portada", "02": "s08", "03": "portada", "04": "s10", "05": "s10", "06": "s02", "07": "s07", "08": "s12", "09": "s13", "10": "s10"}
 
-# Mecánica de los PNJ (el texto no la da): combate, instinto, salud, heridas, PA, ¿pistola?
-PNJ = {"mara": (25, 40, 12, 2, 0, False), "ivo": (30, 35, 14, 2, 0, False), "noemi": (20, 40, 10, 2, 0, False), "simon": (15, 45, 10, 2, 0, False),
-       "edda": (20, 35, 10, 2, 0, False), "dalia": (45, 45, 16, 2, 3, True), "rafi": (30, 30, 14, 2, 0, False), "yara": (25, 50, 15, 3, 1, False)}
+# Supervivientes (su mecánica y biografía están en texto/<idioma>/supervivientes.json)
+PNJ = ("mara", "ivo", "noemi", "simon", "edda", "dalia", "rafi", "yara")
 ELEGIBLES = ("mara", "ivo", "noemi", "simon", "edda")
 DISP = {"dalia": 0}
 CAJA_ESCENA = {"A": (40, 380, 3270, 2120), "B": (300, 640, 3200, 2070)}
@@ -139,9 +158,20 @@ HALF = mapas.U / 2  # rejilla de muros: media unidad
 # ------------------------------------------------------------------ recursos comunes
 def recursos():
     raw = TRAB / "img" / "raw"
-    for img, *_r in IMAGENES.values():
+    for img in ("i_portada", "i_vesperina", "i_nido", "i_cuarentena", "i_morgue", "i_pasillo", "i_laboratorio", "i_reactor", "i_hangar"):
         webp(raw / f"{img}.png", A / "art" / f"{img}.webp", 1920, 82)
-        webp(raw / f"{img}.png", A / "thumbs" / f"{img}.webp", 400, 78)
+    for k in IMAGENES:
+        src = fuente_escena(k)
+        if src:
+            im = Image.open(src).convert("RGB")
+            alto = round(im.width * 9 / 16)
+            if alto < im.height:   # recorte 16:9 que conserva el suelo (más abajo que arriba)
+                y0 = round((im.height - alto) * 0.6); im = im.crop((0, y0, im.width, y0 + alto))
+            else:
+                ancho = round(im.height * 16 / 9); x0 = (im.width - ancho) // 2; im = im.crop((x0, 0, x0 + ancho, im.height))
+            (A / "scenes").mkdir(parents=True, exist_ok=True); (A / "thumbs").mkdir(parents=True, exist_ok=True)
+            im.resize((1920, 1080), Image.LANCZOS).save(A / "scenes" / f"{k}.webp", "WEBP", quality=84, method=6)
+            im.resize((400, 225), Image.LANCZOS).save(A / "thumbs" / f"{k}.webp", "WEBP", quality=78, method=6)
     for f in sorted(raw.glob("r[0-9][0-9].png")):
         im = Image.open(f)
         m = 0.02 if f.stem != "r17" else 0
@@ -165,6 +195,8 @@ def recursos():
         webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "maps" / f"{d}.webp", None, 86, caja)
         webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "thumbs" / f"deck-{d}.webp", 400, 78, caja)
     for clave, (src, *_r) in list(MUSICA.items()) + list(SFX.items()):
+        if src is None:
+            continue
         carpeta = "musica" if clave in MUSICA else "sfx"
         dst = A / "audio" / carpeta / f"{clave}.ogg"
         dst.parent.mkdir(parents=True, exist_ok=True)
@@ -186,6 +218,15 @@ def token_redondo(src, dst, color, arriba=0.06):
     d.ellipse([10, 10, 390, 390], outline=color, width=12)
     dst.parent.mkdir(parents=True, exist_ok=True)
     out.save(dst, "WEBP", quality=90, method=6)
+
+
+def fuente_escena(k):
+    """Imagen de la escena: la nueva 16:9 sin personajes si existe; si no, la ilustración de reserva."""
+    nueva = TRAB / "img" / "escenas" / f"{k}.png"
+    if nueva.exists():
+        return nueva
+    reserva = IMAGENES[k][0]
+    return TRAB / "img" / "raw" / f"{reserva}.png" if reserva else None
 
 
 def figura(src, dst, lado=1024, visible=0.885, pie=0.055):
@@ -338,7 +379,7 @@ class Aventura:
                     n, nombre = datos
                     img = f'<img class="mini" src="{MOD}/assets/rooms/r{n}.webp" alt="">' if (A / "rooms" / f"r{n}.webp").exists() else ""
                     actual["pages"].append({"key": f"sala:{n}", "name": f"{n} · {nombre}", "nivel": 2,
-                                            "html": [f'<div class="sala"><div class="t"><b>{n}</b><span>{esc(nombre)}</span></div>{img}{md(chr(10).join(cuerpo))}</div>']})
+                                            "html": [f'<div class="sala"><div class="t"><b>{n}</b><span>{esc(nombre)}</span></div>{img}{self.botones_sala(n)}{md(chr(10).join(cuerpo))}</div>']})
                 else:
                     pid, nombre, cargo, est = datos
                     cap["html"].append(f'<div class="pnj"><img src="{MOD}/assets/portraits/{pid}.webp" alt=""><div><h3>{esc(nombre)}</h3><div class="c">{esc(cargo)}</div>'
@@ -403,6 +444,17 @@ class Aventura:
             pages.append(self.page(f"pantalla:{k}", f"{self.T['pantalla']} · {sub.group(1).strip()}" if sub else self.T["pantalla"], t, k * 100))
         self.entry("pantalla", self.T["pantalla"], pages, fol, 70)
         self.entry("registro", self.T["registro"], [self.page("registro", self.T["registro"], self.B.registro(), 0)], fol, 80)
+
+    def botones_sala(self, n):
+        """Pistas de MR- Dirección en la página de la sala: ver o mostrar su escena a pantalla completa y volver al plano."""
+        B = self.T["botones"]
+        deck = SALAS_DECK.get(n, "B")
+        out = []
+        if fuente_escena(f"s{n}"):
+            sid = self.id(f"scene:s{n}")
+            out += [f"@Dir[view|{sid}]{{{B['ver']}}}", f"@Dir[activate|{sid}]{{{B['mostrar']}}}"]
+        out.append(f"@Dir[activate|{self.id(f'scene:deck-{deck}')}]{{{B['volver'].format(d=deck)}}}")
+        return f'<p class="botones">{" · ".join(out)}</p>'
 
     # ---------------- documentos de mesa
     def documentos(self):
@@ -482,8 +534,12 @@ class Aventura:
                             "ownership": {"default": 0}, "flags": {MODID: {"slug": slug, "tipo": "pnj", **self.fig(slug)}}})
 
     def pnj(self):
+        """Supervivientes como personajes completos: mecánica y biografía de texto/<idioma>/supervivientes.json + su entrada del manual."""
         fol = self.folder("Actor", "pnj", 200)
         texto = (self.tx / "manual.md").read_text().split("\n")
+        S = json.loads((self.tx / "supervivientes.json").read_text())
+        parches_es = json.loads((ROOT.parent / "mr-mothership-es" / "parches" / "parches.json").read_text())
+        h = self.T["sup"]
         for k, l in enumerate(texto):
             if not l.startswith("@pnj "):
                 continue
@@ -493,10 +549,30 @@ class Aventura:
                 if x.startswith("@") or x.startswith(":::") or x.startswith("## "):
                     break
                 cuerpo.append(x)
-            c, ins, hp, her, pa, arma = PNJ[pid]
-            self.criatura(pid, nombre, f"{MOD}/assets/portraits/{pid}.webp", (c, ins, hp, her, pa),
-                          f'<p><b>{esc(cargo)}</b> · <i>{esc(est)}</i></p>{md(chr(10).join(cuerpo))}',
-                          [(self.T["pistola"], "1d10")] if arma else [], fol, DISP.get(pid, 1), "#5c8c8f", len(self.actors) * 10)
+            s = S[pid]
+            parche = s["parche_texto"] or parches_es[int(s["parche"])]
+            secc = "".join(f"<h4>{h[c]}</h4><p>{esc(s[c])}</p>" for c in ("donde", "voz", "relaciones", "pistas", "copia"))
+            bio = (f'<div class="mr-eidolon-j"><p><b>{esc(cargo)}</b> · <i>{esc(est)}</i></p>{md(chr(10).join(cuerpo))}{secc}'
+                   f'<p><b>{h["parche"]}:</b> {esc(parche)}</p></div>')
+            items = [self.item(pid, n, nom, "skill", {"description": "", "rank": self.T["rango"][v], "bonus": v, "prerequisite_ids": []}, "icons/svg/book.svg")
+                     for n, (nom, v) in enumerate(s["hab"])]
+            for nom, dano, pa in s["equipo"]:
+                n = len(items)
+                if pa:
+                    items.append(self.item(pid, n, nom, "armor", {"description": nom, "armorPoints": pa, "damageReduction": 0, "speed": "", "oxygenMax": 0, "oxygenCurrent": 0, "equipped": True}, "icons/svg/shield.svg"))
+                elif dano:
+                    items.append(self.item(pid, n, nom, "weapon", {"description": nom, "damage": dano, "settings": {"firstEdition": True}}, "icons/svg/sword.svg"))
+                else:
+                    items.append(self.item(pid, n, nom, "item", {"description": nom, "quantity": 1}, "icons/svg/item-bag.svg"))
+            stats = {c: {"value": v, "mod": 0, "min": 0, "max": 99} for c, v in zip(("strength", "speed", "intellect", "combat", "sanity", "fear", "body"), s["st"] + s["sv"])}
+            stats["armor"] = {"value": 0, "mod": 0, "min": 0, "max": 99, "damageReduction": 0, "cover": "none"}
+            img = f"{MOD}/assets/portraits/{pid}.webp"
+            self.actors.append({"_id": self.id(f"actor:{pid}"), "name": nombre, "type": "character", "img": img,
+                                "system": {"biography": bio, "class": {"value": s["clase_nombre"]}, "rank": {"value": cargo.split("·")[0].strip()},
+                                           "health": {"value": s["salud"], "min": 0, "max": s["salud"]}, "hits": {"value": 0, "min": 0, "max": s["heridas"]},
+                                           "other": {"stress": {"value": s["estres"], "min": 2, "max": 20}, "stressdesc": {"value": s["trauma"]}}, "stats": stats},
+                                "prototypeToken": self.token(nombre, img, DISP.get(pid, 1), False, "#5c8c8f"), "items": items, "effects": [], "folder": fol,
+                                "sort": len(self.actors) * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": pid, "tipo": "pnj", **self.fig(pid)}}})
         fol = self.folder("Actor", "amenaza", 300, "#7a2b22")
         for n, (nombre, sub, (c, ins, her, pa), a, b) in enumerate(self.D["adversarios"]):
             slug = ("forma", "matriz")[n]
@@ -545,13 +621,18 @@ class Aventura:
                 "walls": ws, "notes": notes, "tokens": [], "lights": [], "sounds": [], "tiles": [], "drawings": [], "templates": [], "regions": regions,
                 "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": f"deck-{d}"}}})
 
+    def nombre_escena(self, k):
+        if k in ("portada", "vesperina"):
+            return self.T["esc"][k]
+        n = k[1:]
+        return self.T["esc"]["pasillo"] if n == "15" else f"{n} · {self.D['salas'][n]}"
+
     def escenas_imagen(self):
         fol = self.folder("Scene", "imagen", 200)
-        for n, (k, (img, *_r)) in enumerate(IMAGENES.items()):
-            w, h = Image.open(A / "art" / f"{img}.webp").size
+        for n, k in enumerate(k for k in IMAGENES if fuente_escena(k)):
             self.scenes.append({
-                "_id": self.id(f"scene:{k}"), "name": self.T["esc"][k], "active": False, "navigation": False, "navOrder": 10 + n,
-                "background": {"src": f"{MOD}/assets/art/{img}.webp"}, "thumb": f"{MOD}/assets/thumbs/{img}.webp", "width": w, "height": h, "padding": 0,
+                "_id": self.id(f"scene:{k}"), "name": self.nombre_escena(k), "active": False, "navigation": False, "navOrder": 10 + n,
+                "background": {"src": f"{MOD}/assets/scenes/{k}.webp"}, "thumb": f"{MOD}/assets/thumbs/{k}.webp", "width": 1920, "height": 1080, "padding": 0,
                 "initial": None, "backgroundColor": "#000000", "grid": {"type": 0, "size": 100, "alpha": 0}, "tokenVision": False, "fog": {"exploration": False},
                 "environment": {"darknessLevel": 0, "globalLight": {"enabled": True}}, "walls": [], "notes": [], "tokens": [], "lights": [], "sounds": [],
                 "tiles": [], "drawings": [], "templates": [], "regions": [], "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": k, "imagen": True}}})
@@ -616,12 +697,12 @@ class Aventura:
                             "music": f(musica), "motifs": None, "cues": [cue(c) for c in cues], "ambient": None, "figures": [],
                             "handouts": [{"ref": {"uuid": self.uuid_pagina(f"plano:{d}-crew")}, "label": T["plano_trip"].format(d=d)}],
                             "notes": "", "thumb": f"{MOD}/assets/thumbs/deck-{d}.webp"})
-        for n, (k, (img, lect, musica, cues, figs, amb)) in enumerate(IMAGENES.items()):
-            escenas.append({"ref": f(k), "order": 10 + n, "name": T["esc"][k], "reading": {"uuid": self.uuid_pagina(lect)},
+        for n, (k, (img, lect, musica, cues, figs, amb)) in enumerate((k, v) for k, v in IMAGENES.items() if fuente_escena(k)):
+            escenas.append({"ref": f(k), "order": 10 + n, "name": self.nombre_escena(k), "reading": {"uuid": self.uuid_pagina(lect)},
                             "music": f(musica), "motifs": None, "cues": [cue(c) for c in cues], "ambient": amb,
                             "figures": [{"ref": f(p), "label": ""} for p in figs],
                             "handouts": [{"ref": f(f"doc-{dn}"), "label": self.docs[dn]["name"]} for dn, e in ENTREGA.items() if e == k],
-                            "notes": "", "thumb": f"{MOD}/assets/thumbs/{img}.webp", "stage": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.9], [0.7, 0.86]]}})
+                            "notes": "", "thumb": f"{MOD}/assets/thumbs/{k}.webp", "stage": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.9], [0.7, 0.86]]}})
         return {"schema": 1, "id": MODID, "title": T["titulo"], "version": json.loads((ROOT / "module.json").read_text())["version"], "author": "Manu Romera",
                 "license": "CC BY-NC-SA 4.0", "settings": {"fade": 3.5, "motifs": mot, "effects": efectos, "markers": marcas}, "scenes": escenas}
 
