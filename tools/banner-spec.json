@@ -1,0 +1,142 @@
+[
+ {
+  "src": "/Volumes/Datos_Dock/FoundryVTT/Trabajo EIDOLON/img/raw/i_portada.png",
+  "focus": 0.45,
+  "accent": [
+   228,
+   89,
+   63
+  ],
+  "kicker": "NÓXUM · Archivos de ciencia negra · Black science archives",
+  "title": [
+   "EIDOLON"
+  ],
+  "subtitle": [
+   "Nadie recuerda morir",
+   "No One Remembers Dying"
+  ],
+  "upper_subtitle": true,
+  "subtitle_track": 0.008,
+  "tagline": [
+   "Mothership 1e · Foundry VTT · Castellano · English"
+  ],
+  "fonts": {
+   "kicker": [
+    "/System/Library/Fonts/Avenir Next Condensed.ttc",
+    2
+   ],
+   "title": [
+    "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
+    0
+   ],
+   "subtitle": [
+    "/System/Library/Fonts/Avenir Next Condensed.ttc",
+    2
+   ],
+   "tagline": [
+    "/System/Library/Fonts/Avenir Next.ttc",
+    5
+   ]
+  },
+  "colors": {
+   "kicker": [
+    201,
+    154,
+    46
+   ],
+   "title": [
+    243,
+    239,
+    230
+   ],
+   "subtitle": [
+    228,
+    89,
+    63
+   ],
+   "tagline": [
+    214,
+    220,
+    222
+   ]
+  },
+  "title_max": 0.36,
+  "title_track": 0.02,
+  "title_lead": 0.86,
+  "out": "docs/img/banner.webp",
+  "size": [
+   1600,
+   560
+  ]
+ },
+ {
+  "src": "/Volumes/Datos_Dock/FoundryVTT/Trabajo EIDOLON/img/raw/i_portada.png",
+  "focus": 0.45,
+  "accent": [
+   228,
+   89,
+   63
+  ],
+  "kicker": "NÓXUM · Archivos de ciencia negra · Black science archives",
+  "title": [
+   "EIDOLON"
+  ],
+  "subtitle": [
+   "Nadie recuerda morir",
+   "No One Remembers Dying"
+  ],
+  "upper_subtitle": true,
+  "subtitle_track": 0.008,
+  "tagline": [
+   "Mothership 1e · Foundry VTT · Castellano · English"
+  ],
+  "fonts": {
+   "kicker": [
+    "/System/Library/Fonts/Avenir Next Condensed.ttc",
+    2
+   ],
+   "title": [
+    "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
+    0
+   ],
+   "subtitle": [
+    "/System/Library/Fonts/Avenir Next Condensed.ttc",
+    2
+   ],
+   "tagline": [
+    "/System/Library/Fonts/Avenir Next.ttc",
+    5
+   ]
+  },
+  "colors": {
+   "kicker": [
+    201,
+    154,
+    46
+   ],
+   "title": [
+    243,
+    239,
+    230
+   ],
+   "subtitle": [
+    228,
+    89,
+    63
+   ],
+   "tagline": [
+    214,
+    220,
+    222
+   ]
+  },
+  "title_max": 0.36,
+  "title_track": 0.02,
+  "title_lead": 0.86,
+  "out": "docs/img/social.png",
+  "size": [
+   1280,
+   640
+  ]
+ }
+]
