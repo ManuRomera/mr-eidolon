@@ -49,16 +49,16 @@ La tripulación de la *Viuda* acepta un contrato de laboratorio en la estación 
 |---|---|
 | 📖 **Dosier del Guardián** | El libro entero como diarios: 14 capítulos, 17 salas, los ocho supervivientes, los bloques gráficos del PDF (cronología, ensayos, relojes, salidas), la **Pantalla del Guardián** revisada con la Guía de supervivencia 1.2 y un **Registro de Ausencias** editable. |
 | 🗺️ **Planos de las cubiertas** | Dos cubiertas compuestas con plantas cenitales de cada sala, con **muros, puertas y puertas de carga selladas**, notas de sala enlazadas a su página y escalera y trampillas que **llevan los tokens de una cubierta a otra**. Versiones rotuladas de tripulación y del Guardián como imágenes de diario. |
-| 🎬 **Escenas de imagen** | Nueve escenas a pantalla completa (Nido Cero, Morgue, Reactor, Hangar…) con lectura, música, efectos, reparto y documentos listos en **MR- Dirección**. |
+| 🎬 **Escenas de imagen** | **Una escena 16:9 por sala** (las 17, más la portada y la *Vesperina*), vacías de personas para que las **figuras de cuerpo entero** de PJ y supervivientes se coloquen a escala sobre el suelo. Cada una con su lectura, música, efectos, reparto y documentos en **MR- Dirección**, y desde el plano: pulsa una sala → «Ver la escena» o «Mostrar a todos». |
 | 🧬 **Registro de Ausencias** | Anota la Huella de cada persona, marca las copias y haz el **sorteo imparcial de sustitución** (una papeleta con Huella 2, dos con Huella 3, máximo tres copias), que llega en privado al Guardián. |
-| 🧑‍🚀 **Actores** | 6 pregenerados con características, habilidades, equipo, respuesta al trauma y su vínculo y secreto confidenciales; 8 supervivientes y 2 amenazas, todos con retrato y token redondo. |
+| 🧑‍🚀 **Actores** | 6 pregenerados con características, habilidades, equipo, respuesta al trauma y su vínculo y secreto confidenciales; **8 supervivientes con ficha completa** (clase, salvaciones, habilidades, armas y armadura, trauma, cómo hablan, qué saben, cómo se comportan si son copia y su parche) y 2 amenazas. Todos con retrato, token redondo y figura de cuerpo entero. |
 | 📄 **10 documentos de mesa** | Los papeles de NÓXUM como imagen y con su texto. |
 | 🎲 **Tablas y macros** | Pulsos de eventos, Incidentes, Primera copia latente; macros para el sorteo y el Registro. |
-| 🎧 **Banda sonora** | 10 pistas y 15 efectos originales (síntesis de la casa, misma licencia), con motivos de tensión, horror, huida, exploración y epílogo. |
+| 🎧 **Banda sonora** | 20 pistas (una propia por ubicación, incluido el «Cumpleaños feliz» de la caja de música) y 15 efectos originales (síntesis de la casa, misma licencia), con motivos de tensión, horror, huida, exploración y epílogo. |
 
 <p align="center">
   <img src="docs/img/foundry-deck-es.webp" alt="Cubierta A con muros, puertas, notas de sala y la tripulación" width="49%">
-  <img src="docs/img/foundry-nido-es.webp" alt="Escena del Nido Cero con la barra de MR- Dirección" width="49%">
+  <img src="docs/img/foundry-escena-es.webp" alt="Enfermería con Mara y dos PJ como figuras de cuerpo entero y la barra de MR- Dirección" width="49%">
   <img src="docs/img/foundry-journal-es.webp" alt="Diario del Dosier del Guardián" width="49%">
   <img src="docs/img/foundry-registro-es.webp" alt="Registro de Ausencias y sorteo de sustitución" width="49%">
 </p>
@@ -125,16 +125,16 @@ The crew of the *Widow* takes a lab contract on station **LIMEN-9**: repeat four
 |---|---|
 | 📖 **Warden’s Dossier** | The whole book as journals: 14 chapters, 17 keyed rooms, the eight survivors, the graphic blocks of the PDF (timeline, tests, clocks, exits), the **Warden’s Screen** checked against the Player’s Survival Guide 1.2 and an editable **Absence Log**. |
 | 🗺️ **Deck plans** | Two decks built from overhead renders of every room, with **walls, doors and sealed cargo doors**, room notes linked to their journal page, and stairs and hatches that **teleport tokens between decks**. Labeled crew and Warden versions as journal images. |
-| 🎬 **Image scenes** | Nine full-screen scenes (Nest Zero, Morgue, Reactor, Hangar…) with read-aloud text, music, effects, cast and handouts ready in **MR- Dirección**. |
+| 🎬 **Image scenes** | **One 16:9 scene per room** (all 17, plus the cover and the *Vesperine*), empty of people so the **full-body figures** of PCs and survivors stand to scale on the floor. Each with read-aloud text, music, effects, cast and handouts in **MR- Dirección**, and reachable from the deck plan: click a room → “View the scene” or “Show to everyone”. |
 | 🧬 **Absence Log tool** | Track each person’s Imprint, mark copies and run the **impartial replacement draw** (one slip at Imprint 2, two at Imprint 3, three-copy limit), whispered to the Warden. |
-| 🧑‍🚀 **Actors** | 6 pregenerated characters with stats, skills, gear, trauma response and their confidential bond and secret; 8 survivors and 2 threats, all with portraits and round tokens. |
+| 🧑‍🚀 **Actors** | 6 pregenerated characters with stats, skills, gear, trauma response and their confidential bond and secret; **8 survivors with full character sheets** (class, saves, skills, weapons and armor, trauma, how they talk, what they know, how they act as a copy, and their patch) and 2 threats. All with portraits, round tokens and full-body figures. |
 | 📄 **10 handouts** | NOXUM documents as images plus their text. |
 | 🎲 **Tables & macros** | Event Pulses, Incidents, First Latent Copy; macros for the draw and the Log. |
-| 🎧 **Soundtrack** | 10 original tracks and 15 effects (house synthesis, same license), with motifs for tension, horror, escape, exploration and epilogue. |
+| 🎧 **Soundtrack** | 20 tracks (one for each location, including the music-box “Happy Birthday”) and 15 original effects (house synthesis, same license), with motifs for tension, horror, escape, exploration and epilogue. |
 
 <p align="center">
   <img src="docs/img/foundry-deck.webp" alt="Deck A with walls, doors, room notes and the crew" width="49%">
-  <img src="docs/img/foundry-nido.webp" alt="Nest Zero image scene with the MR- Dirección bar" width="49%">
+  <img src="docs/img/foundry-escena.webp" alt="Mess Hall with Rafi and three PCs as full-body figures and the MR- Dirección bar" width="49%">
   <img src="docs/img/foundry-journal.webp" alt="Warden's Dossier journal" width="49%">
   <img src="docs/img/foundry-registro.webp" alt="Absence Log and replacement draw" width="49%">
 </p>

@@ -2,7 +2,7 @@
  "id": "mr-eidolon",
  "title": "MR- EIDOLON",
  "description": "Aventura de horror científico para Mothership 1e, en castellano e inglés. Un contrato de laboratorio, un material que recuerda y copias que no saben que lo son: Dosier del Guardián completo, 10 documentos, 6 pregenerados, 8 supervivientes, planos con muros y puertas, escenas de imagen con música y efectos para MR- Dirección y el Registro de Ausencias. · A science-horror adventure for Mothership 1e, in Spanish and English. A lab contract, a material that remembers, and copies that don’t know they are copies: full Warden’s Dossier, 10 handouts, 6 pregens, 8 survivors, deck plans with walls and doors, image scenes with music and effects for MR- Dirección, and the Absence Log tools.",
- "version": "1.0.0",
+ "version": "1.1.0",
  "authors": [
   {
    "name": "Manu Romera",
@@ -85,7 +85,7 @@
  ],
  "url": "https://github.com/ManuRomera/mr-eidolon",
  "manifest": "https://github.com/ManuRomera/mr-eidolon/releases/latest/download/module.json",
- "download": "https://github.com/ManuRomera/mr-eidolon/releases/download/v1.0.0/mr-eidolon.zip",
+ "download": "https://github.com/ManuRomera/mr-eidolon/releases/download/v1.1.0/mr-eidolon.zip",
  "readme": "https://github.com/ManuRomera/mr-eidolon#readme",
  "bugs": "https://github.com/ManuRomera/mr-eidolon/issues",
  "changelog": "https://github.com/ManuRomera/mr-eidolon/blob/main/CHANGELOG.md",

@@ -141,6 +141,27 @@ IMAGENES = {"portada": ("i_portada", "lectura:0", "estacion", ["radio"], [], "di
             "s15": ("i_pasillo", "sala:15", "conductos", ["raspado", "goteo"], ["forma"], "dark"),
             "s16": ("i_hangar", "sala:16", "hangar", ["presion", "casco"], [], "dim"),
             "s17": (None, "sala:17", "eva", ["casco", "radio"], [], "dark")}
+# Horizonte (eye) y puntos de apoyo del suelo por escena, ajustados a ojo sobre cada fondo 16:9 (MR- Dirección)
+STAGE = {
+    "s01": {"eye": 0.33, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s02": {"eye": 0.47, "anchors": [[0.2, 0.93], [0.36, 0.83], [0.47, 0.95]]},
+    "s03": {"eye": 0.3, "anchors": [[0.25, 0.9], [0.5, 0.94], [0.75, 0.9]]},
+    "s04": {"eye": 0.33, "anchors": [[0.3, 0.88], [0.5, 0.93], [0.7, 0.88]]},
+    "s05": {"eye": 0.38, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s06": {"eye": 0.35, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s07": {"eye": 0.38, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.65, 0.86]]},
+    "s08": {"eye": 0.4, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s09": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s10": {"eye": 0.42, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s11": {"eye": 0.55, "anchors": [[0.3, 0.95], [0.5, 0.97], [0.7, 0.95]]},
+    "s12": {"eye": 0.4, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s13": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s14": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.92], [0.7, 0.86]]},
+    "s15": {"eye": 0.38, "anchors": [[0.3, 0.86], [0.45, 0.92], [0.6, 0.86]]},
+    "s16": {"eye": 0.45, "anchors": [[0.2, 0.86], [0.4, 0.92], [0.6, 0.88]]},
+    "s17": {"eye": 0.55, "anchors": [[0.3, 0.88], [0.5, 0.93], [0.7, 0.88]]},
+}
+STAGE_DEF = {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.9], [0.7, 0.86]]}
 SALAS_DECK = {k: d for d, C in mapas.CUBIERTAS.items() for k in list(C["salas"]) + ([C["exterior"][0]] if C["exterior"] else [])}
 MAPA_MUSICA = {"A": ("estacion", ["ventilacion", "zumbido"]), "B": ("conductos", ["zumbido", "goteo"])}
 # En qué escena de imagen se entrega cada documento de mesa (según su «entrega»)
@@ -702,7 +723,7 @@ class Aventura:
                             "music": f(musica), "motifs": None, "cues": [cue(c) for c in cues], "ambient": amb,
                             "figures": [{"ref": f(p), "label": ""} for p in figs],
                             "handouts": [{"ref": f(f"doc-{dn}"), "label": self.docs[dn]["name"]} for dn, e in ENTREGA.items() if e == k],
-                            "notes": "", "thumb": f"{MOD}/assets/thumbs/{k}.webp", "stage": {"eye": 0.45, "anchors": [[0.3, 0.86], [0.5, 0.9], [0.7, 0.86]]}})
+                            "notes": "", "thumb": f"{MOD}/assets/thumbs/{k}.webp", "stage": STAGE.get(k, STAGE_DEF)})
         return {"schema": 1, "id": MODID, "title": T["titulo"], "version": json.loads((ROOT / "module.json").read_text())["version"], "author": "Manu Romera",
                 "license": "CC BY-NC-SA 4.0", "settings": {"fade": 3.5, "motifs": mot, "effects": efectos, "markers": marcas}, "scenes": escenas}
 

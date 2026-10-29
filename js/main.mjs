@@ -40,9 +40,9 @@ export async function importarAventura({ lang = idioma(), confirmar = false } = 
   }
   ui.notifications.info(t("Importing"));
   const adv = (await pack.getDocuments())[0];
-  // Lo que los jugadores ya llevan (pregenerados) no se pisa al reimportar.
+  // Lo que los jugadores ya llevan (pregenerados) no se pisa al reimportar: de ellos solo se actualizan las marcas del módulo (figura…).
   const respetarPJ = data => {
-    if (data.toUpdate.Actor) data.toUpdate.Actor = data.toUpdate.Actor.filter(d => d.flags?.[MOD]?.tipo !== "pj");
+    if (data.toUpdate.Actor) data.toUpdate.Actor = data.toUpdate.Actor.map(d => d.flags?.[MOD]?.tipo === "pj" ? { _id: d._id, flags: { [MOD]: d.flags[MOD] } } : d);
   };
   await adv.import({ dialog: false, preImport: [respetarPJ] });
   await game.settings.set(MOD, "importada", lang);
