@@ -22,6 +22,9 @@ A = ROOT / "assets"
 LANGS = ("es", "en")
 sys.path.insert(0, str(TRAB / "tools"))
 import mapas  # noqa: E402
+MARCA = Path(os.environ.get("MR_MARCA", "/Volumes/Datos_Dock/FoundryVTT/Trabajo LOGO/marca"))
+sys.path.insert(0, str(MARCA))
+import marca  # noqa: E402  (regla de la casa: toda imagen lleva la marca MR)
 
 CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -43,13 +46,15 @@ def ilm(t):
     return re.sub(r"^<p>|</p>$", "", md(t).strip())
 
 
-def webp(src, dst, ancho=None, q=84, caja=None):
+def webp(src, dst, ancho=None, q=84, caja=None, firma=False):
     dst.parent.mkdir(parents=True, exist_ok=True)
     im = Image.open(src).convert("RGB")
     if caja:
         im = im.crop(caja)
     if ancho and im.width > ancho:
         im = im.resize((ancho, round(im.height * ancho / im.width)), Image.LANCZOS)
+    if firma:
+        im = marca.esquina(im)
     im.save(dst, "WEBP", quality=q, method=6)
     return im.size
 
@@ -180,7 +185,7 @@ HALF = mapas.U / 2  # rejilla de muros: media unidad
 def recursos():
     raw = TRAB / "img" / "raw"
     for img in ("i_portada", "i_vesperina", "i_nido", "i_cuarentena", "i_morgue", "i_pasillo", "i_laboratorio", "i_reactor", "i_hangar"):
-        webp(raw / f"{img}.png", A / "art" / f"{img}.webp", 1920, 82)
+        webp(raw / f"{img}.png", A / "art" / f"{img}.webp", 1920, 82, firma=True)
     for k in IMAGENES:
         src = fuente_escena(k)
         if src:
@@ -191,12 +196,12 @@ def recursos():
             else:
                 ancho = round(im.height * 16 / 9); x0 = (im.width - ancho) // 2; im = im.crop((x0, 0, x0 + ancho, im.height))
             (A / "scenes").mkdir(parents=True, exist_ok=True); (A / "thumbs").mkdir(parents=True, exist_ok=True)
-            im.resize((1920, 1080), Image.LANCZOS).save(A / "scenes" / f"{k}.webp", "WEBP", quality=84, method=6)
+            marca.esquina(im.resize((1920, 1080), Image.LANCZOS)).save(A / "scenes" / f"{k}.webp", "WEBP", quality=84, method=6)
             im.resize((400, 225), Image.LANCZOS).save(A / "thumbs" / f"{k}.webp", "WEBP", quality=78, method=6)
     for f in sorted(raw.glob("r[0-9][0-9].png")):
         im = Image.open(f)
         m = 0.02 if f.stem != "r17" else 0
-        webp(f, A / "rooms" / f"{f.stem}.webp", 640, 80, (int(im.width * m), int(im.height * m), int(im.width * (1 - m)), int(im.height * (1 - m))))
+        webp(f, A / "rooms" / f"{f.stem}.webp", 640, 80, (int(im.width * m), int(im.height * m), int(im.width * (1 - m)), int(im.height * (1 - m))), firma=True)
     for pid in PNJ:
         webp(raw / f"p_{pid}.png", A / "portraits" / f"{pid}.webp", 900, 84)
     for i in range(1, 7):
@@ -207,13 +212,16 @@ def recursos():
     for f in sorted((A / "portraits").glob("*.webp")):
         k = f.stem
         color = (13, 102, 112) if k.startswith("pj") else (184, 56, 42) if k in ("forma", "matriz") else (150, 160, 162)
-        token_redondo(f, A / "tokens" / f"{k}.webp", color, 0.0 if k == "matriz" else 0.06)
+        token_redondo(f, A / "tokens" / f"{k}.webp", color, 0.0 if k == "matriz" else 0.06, aro=k.startswith("pj"))
+        marca.esquina(Image.open(f)).save(f, "WEBP", quality=86, method=6)   # el retrato se firma después de sacar el token
+    (A / "brand").mkdir(exist_ok=True)
+    shutil.copy(MARCA / "mr-marca.webm", A / "brand" / "mr-marca.webm")
     for f in sorted((TRAB / "img" / "figuras").glob("*.png")):
         if "." in f.stem:
             continue
         figura(f, A / "figures" / f"{f.stem}.webp")
     for d, caja in CAJA_ESCENA.items():
-        webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "maps" / f"{d}.webp", None, 86, caja)
+        webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "maps" / f"{d}.webp", None, 86, caja, firma=True)
         webp(TRAB / "img" / "mapas" / f"{d}.jpg", A / "thumbs" / f"deck-{d}.webp", 400, 78, caja)
     for clave, (src, *_r) in list(MUSICA.items()) + list(SFX.items()):
         if src is None:
@@ -224,8 +232,9 @@ def recursos():
         shutil.copy(NADIR_AUDIO / carpeta / f"{src}.ogg", dst)
 
 
-def token_redondo(src, dst, color, arriba=0.06):
-    """Token circular: cuadrado del retrato (desde arriba, donde está la cara) con aro de color y fondo transparente."""
+def token_redondo(src, dst, color, arriba=0.06, aro=False):
+    """Token circular: cuadrado del retrato (desde arriba, donde está la cara) con aro de color y fondo transparente.
+    Marca MR discreta en la ropa (abajo a la derecha) o, en los primeros planos de cara (`aro`), sellada en el aro."""
     from PIL import ImageDraw
     im = Image.open(src).convert("RGB")
     lado = min(im.width, im.height)
@@ -237,6 +246,7 @@ def token_redondo(src, dst, color, arriba=0.06):
     d = ImageDraw.Draw(out)
     d.ellipse([6, 6, 394, 394], outline=(10, 14, 17, 255), width=22)
     d.ellipse([10, 10, 390, 390], outline=color, width=12)
+    out = marca.discreta(out, 329, 329, 17, contraste=.22) if aro else marca.discreta(out, 280, 316, 30)
     dst.parent.mkdir(parents=True, exist_ok=True)
     out.save(dst, "WEBP", quality=90, method=6)
 
@@ -260,6 +270,7 @@ def figura(src, dst, lado=1024, visible=0.885, pie=0.055):
     im = im.resize((ancho, alto), Image.LANCZOS)
     out = Image.new("RGBA", (lado, lado), (0, 0, 0, 0))
     out.alpha_composite(im, ((lado - ancho) // 2, round(lado * (1 - pie)) - alto))
+    out = marca.hombro(out)
     dst.parent.mkdir(parents=True, exist_ok=True)
     out.save(dst, "WEBP", quality=88, method=6)
 
@@ -273,13 +284,13 @@ def recursos_idioma(lang):
         dst = A / lang / "planos" / f"{d}-{quien}.webp"
         dst.parent.mkdir(parents=True, exist_ok=True)
         pix = doc[i].get_pixmap(dpi=150)
-        Image.frombytes("RGB", (pix.width, pix.height), pix.samples).save(dst, "WEBP", quality=84, method=6)
+        marca.esquina(Image.frombytes("RGB", (pix.width, pix.height), pix.samples)).save(dst, "WEBP", quality=84, method=6)
     doc = fitz.open(sal / f"{D['archivos']['documentos']}.pdf")
     for i, p in enumerate(doc):
         dst = A / lang / "docs" / f"{i + 1:02d}.webp"
         dst.parent.mkdir(parents=True, exist_ok=True)
         pix = p.get_pixmap(dpi=130)
-        Image.frombytes("RGB", (pix.width, pix.height), pix.samples).save(dst, "WEBP", quality=86, method=6)
+        marca.esquina(Image.frombytes("RGB", (pix.width, pix.height), pix.samples), sube=0.13).save(dst, "WEBP", quality=86, method=6)  # sobre el pie
 
 
 # ------------------------------------------------------------------ geometría de muros
@@ -639,8 +650,15 @@ class Aventura:
                 "width": ancho, "height": alto, "padding": 0, "initial": {"x": ancho // 2, "y": alto // 2, "scale": 0.45}, "backgroundColor": "#070b0e",
                 "grid": {"type": 1, "size": GRID, "style": "solidLines", "thickness": 1, "color": "#000000", "alpha": 0.12, "distance": 1.5, "units": "m"},
                 "tokenVision": True, "fog": {"exploration": True}, "environment": {"darknessLevel": 0.25, "globalLight": {"enabled": True, "darkness": {"max": 0.6}}},
-                "walls": ws, "notes": notes, "tokens": [], "lights": [], "sounds": [], "tiles": [], "drawings": [], "templates": [], "regions": regions,
+                "walls": ws, "notes": notes, "tokens": [], "lights": [], "sounds": [], "tiles": [self.firma(f"deck-{d}", ancho, alto)], "drawings": [], "templates": [], "regions": regions,
                 "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": f"deck-{d}"}}})
+
+    def firma(self, k, ancho, alto):
+        """Brillo animado de la marca MR, justo encima del monograma fijo que ya lleva el fondo (esquina inferior derecha)."""
+        x, y, w, h = marca.caja_animada(ancho, alto)
+        return {"_id": self.id(f"tile:firma:{k}"), "texture": {"src": f"{MOD}/assets/brand/mr-marca.webm", "scaleX": 1, "scaleY": 1, "tint": "#ffffff", "fit": "fill"},
+                "x": x, "y": y, "width": w, "height": h, "elevation": 0, "sort": 0, "rotation": 0, "alpha": 1, "hidden": False, "locked": True,
+                "restrictions": {"light": False, "weather": False}, "occlusion": {"mode": 0, "alpha": 0}, "video": {"loop": True, "autoplay": True, "volume": 0}, "flags": {}}
 
     def nombre_escena(self, k):
         if k in ("portada", "vesperina"):
@@ -656,7 +674,8 @@ class Aventura:
                 "background": {"src": f"{MOD}/assets/scenes/{k}.webp"}, "thumb": f"{MOD}/assets/thumbs/{k}.webp", "width": 1920, "height": 1080, "padding": 0,
                 "initial": None, "backgroundColor": "#000000", "grid": {"type": 0, "size": 100, "alpha": 0}, "tokenVision": False, "fog": {"exploration": False},
                 "environment": {"darknessLevel": 0, "globalLight": {"enabled": True}}, "walls": [], "notes": [], "tokens": [], "lights": [], "sounds": [],
-                "tiles": [], "drawings": [], "templates": [], "regions": [], "folder": fol, "sort": n * 10, "ownership": {"default": 0}, "flags": {MODID: {"slug": k, "imagen": True}}})
+                "tiles": [self.firma(k, 1920, 1080)], "drawings": [], "templates": [], "regions": [], "folder": fol, "sort": n * 10, "ownership": {"default": 0},
+                "flags": {MODID: {"slug": k, "imagen": True}}})
 
     # ---------------- sonido, tablas y macros
     def sonido(self):

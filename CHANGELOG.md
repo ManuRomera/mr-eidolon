@@ -1,5 +1,17 @@
 # Cambios · Changelog
 
+## 1.2.0 (2026-10-30)
+
+**Castellano**
+- **Marca MR en todas las imágenes**: monograma en la esquina inferior derecha de escenas, mapas, ilustraciones, salas, retratos, planos y documentos (en los documentos, por encima del pie para no pisar el código de barras).
+- **Marca animada en las escenas**: sobre el monograma de cada escena, un vídeo transparente en bucle hace pasar un brillo por las letras y destellar la estrella (empieza con el primer clic, como todo el audio y el vídeo en el navegador).
+- **Figuras y tokens firmados con discreción**: monograma muy suave en la manga de cada figura de cuerpo entero y en la ropa de los tokens; en los primeros planos de cara de los pregenerados va sellado en el aro.
+
+**English**
+- **MR mark on every image**: monogram in the lower-right corner of scenes, maps, illustrations, rooms, portraits, deck plans and handouts (on handouts it sits above the footer so it doesn't cover the barcode).
+- **Animated mark on scenes**: over each scene's monogram, a looping transparent video sweeps a shine across the letters and makes the star flare (it starts on the first click, like all audio and video in the browser).
+- **Subtly signed figures and tokens**: a very faint monogram on the sleeve of every full-body figure and on the clothing of tokens; on the pregens' face close-ups it is stamped on the ring.
+
 ## 1.1.0 (2026-10-29)
 
 **Castellano**
